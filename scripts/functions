@@ -1009,6 +1009,7 @@ CT_GetFile()
             if [ "${url}" = "-unknown-" ]; then
                 CT_Abort "Don't know how to download ${basename}"
             fi
+            CT_DoLog EXTRA "url = '${url}/${basename}${ext}'"
             if CT_DoGetFile "${url}/${basename}${ext}"; then
                 if [ -n "${digest}" -a -n "${pkg_dir}" ] && ! CT_DoVerifyDigest \
                             "${CT_TARBALLS_DIR}/${basename}${ext}" \
